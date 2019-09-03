@@ -7,7 +7,11 @@ function NoteForm({ handleSubmit }) {
 
   return (
     <>
-      <form onSubmit={event => handleSubmit(event, { title, body })}>
+      <form onSubmit={event => {
+        handleSubmit(event, { title, body }),
+        updateTitle(''),
+        updateBody('');
+      }}>
         <input onChange={({ target }) => updateTitle(target.value)} type="text" value={title} name="title" placeholder="title"></input>
         <textarea type="text" name="body" value={body} placeholder="type note here" onChange={({ target }) => updateBody(target.value)}></textarea>
         <button>Create Note</button>
