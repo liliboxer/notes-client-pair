@@ -1,4 +1,4 @@
-import { CREATE_NOTE, ADD_NOTE } from '../actions/noteActions';
+import { CREATE_NOTE, ADD_NOTE, FETCH_NOTES } from '../actions/noteActions';
 
 const initialState = {
   title: '',
@@ -11,7 +11,9 @@ export default function noteReducer(state = initialState, action) {
     case CREATE_NOTE:
       return { ...state.notes, title: action.payload, body: action.payload };
     case ADD_NOTE:
-      return { ...state, notes: [...state.notes, { title: action.payload, body: action.payload }] };
+      return { ...state, notes: [action.payload, ...state.notes] };
+    case FETCH_NOTES:
+      return { ...state, notes: action.payload };
     default:
       return state;
   }

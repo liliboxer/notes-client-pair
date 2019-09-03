@@ -1,4 +1,4 @@
-import { postNote } from '../services/noteApi';
+import { postNote, getNotes } from '../services/noteApi';
 
 export const CREATE_NOTE = 'CREATE_NOTE';
 
@@ -13,4 +13,12 @@ export const addNote = note => ({
   type: ADD_NOTE,
   //async 
   payload: postNote(note)
+});
+
+
+export const FETCH_NOTES = 'FETCH_NOTES';
+
+export const fetchNotes = () => ({
+  type: FETCH_NOTES,
+  payload: getNotes()
 });
