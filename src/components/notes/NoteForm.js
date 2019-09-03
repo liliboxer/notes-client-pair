@@ -7,6 +7,7 @@ function NoteForm({ title, body, handleChange }) {
       <form>
         <input type="text" value={title} placeholder="title" onChange={handleChange}></input>
         <textarea type="text" value={body} placeholder="type note here" onChange={handleChange}></textarea>
+        <button>Create Note</button>
       </form>
     </>
   );
