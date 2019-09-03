@@ -1,3 +1,5 @@
+import { postNote } from '../services/noteApi';
+
 export const CREATE_NOTE = 'CREATE_NOTE';
 
 export const createNote = (title, body) => ({

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function NoteForm({ id, title, body, handleChange, handleSubmit }) {
+function NoteForm({ handleSubmit }) {
+  const [title, updateTitle] = useState('');
+  const [body, updateBody] = useState('');
+
   return (
     <>
       <form onSubmit={event => handleSubmit(event, { title, body })}>
-        <input type="text" value={title} placeholder="title" onChange={handleChange}></input>
-        <textarea type="text" value={body} placeholder="type note here" onChange={handleChange}></textarea>
+        <input onChange={({ target }) => updateTitle(target.value)} type="text" value={title} name="title" placeholder="title"></input>
+        <textarea type="text" name="body" value={body} placeholder="type note here" onChange={({ target }) => updateBody(target.value)}></textarea>
         <button>Create Note</button>
       </form>
     </>
@@ -14,10 +17,6 @@ function NoteForm({ id, title, body, handleChange, handleSubmit }) {
 }
 
 NoteForm.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
 
