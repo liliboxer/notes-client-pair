@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Note from './Note';
+import { Link } from 'react-router-dom';
 
 function Notes({ notes }) {
-  const notesList = notes.map(({ title, body, _id }) => (
+  const notesList = notes.map(({ title, _id }) => (
     <li key={_id}>
-      <Note title={title} body={body}/>
+      <Link to={`/notes/${_id}`}>{title}</Link>
     </li>
   ));
   return <ul>{notesList}</ul>;

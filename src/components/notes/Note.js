@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Note({ title, body }) {
+function Note({ note }) {
   return (
     <section>
-      <h3>{title}</h3>
-      <p>{body}</p>
+      <h3>{note.title}</h3>
+      <p>{note.body}</p>
     </section>
   );
 }
 
 Note.propTypes = {
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  note: PropTypes.object.isRequired
 };
 
 export default Note;
