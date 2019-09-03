@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Note from './Note';
 
 function Notes({ notes }) {
-  const notesList = notes.map((note, i) => (
-    <li key={i}>
+  const notesList = notes.map((note) => (
+    <li key={note.id}>
       <Note title={note.title} body={note.body}/>
     </li>
   ));
@@ -19,3 +19,5 @@ Notes.propTypes = {
     body: PropTypes.string.isRequired
   })).isRequired
 };
+
+export default Notes;
